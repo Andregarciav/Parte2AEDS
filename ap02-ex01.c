@@ -14,13 +14,26 @@ int cadastro( int N )
   for ( i = 0 ; i < N ; i++)
   {
     printf("Digite o nome do paciente: ");
-    scanf("%c" , cadastro[i].nome );
+    scanf("%c " , cadastro[i].nome );
     printf("Digite a idade do paciente: ");
-    scanf("%d" , &cadastro[i].idade );
+    scanf(" %d " , &cadastro[i].idade );
     printf("Digite o peso do paciente: ");
-    scanf("%d" , &cadastro[i].peso );
+    scanf(" %d " , &cadastro[i].peso );
     printf("Digite o altura em metros do paciente: ");
-    scanf("%f" , &cadastro[i].altura );
+    scanf(" %f " , &cadastro[i].altura );
+  }
+}
+imprime(N)
+{
+  INDIVIDUO imprime[MAX];
+  int i;
+  printf("Paciente\nNome\t\tidade\tpeso(kg)\taltura\n");
+  for ( i = 0 ; i < N ; i++)
+  {
+    printf("%c\t" , imprime[i].nome );
+    printf("%d\t" , imprime[i].idade );
+    printf("%d\t" , imprime[i].peso );
+    printf("%f\t" , imprime[i].altura );
   }
 }
 int main()
@@ -35,16 +48,6 @@ int main()
   scanf("%d", &Num);
   }
   cadastro (Num);
-  /*for ( i = 0 ; i < N ; i++)
-  {
-    printf("Digite o nome do paciente: ");
-    scanf("%c" , cadastro[i].nome );
-    printf("Digite a idade do paciente: ");
-    scanf("%d" , &cadastro[i].idade );
-    printf("Digite o peso do paciente: ");
-    scanf("%d" , &cadastro[i].peso );
-    printf("Digite o altura em metros do paciente: ");
-    scanf("%f" , &cadastro[i].altura );
-  }*/
+  imprime();
   return 0;
 }
