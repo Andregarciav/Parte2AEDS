@@ -7,47 +7,50 @@ typedef struct pessoa
     int idade, peso;
     float altura;
   }INDIVIDUO;
-int cadastro( int N )
+INDIVIDUO* cadastro( int N )
 {
-  INDIVIDUO cadastro[MAX];
+  INDIVIDUO* cadastro = (INDIVIDUO*)malloc(sizeof(INDIVIDUO)*MAX);
+
   int i;
   for ( i = 0 ; i < N ; i++)
   {
     printf("Digite o nome do paciente: ");
-    scanf("%c " , cadastro[i].nome );
+    scanf("%s" , cadastro[i].nome );
     printf("Digite a idade do paciente: ");
-    scanf(" %d " , &cadastro[i].idade );
+    scanf("%d" , &cadastro[i].idade );
     printf("Digite o peso do paciente: ");
-    scanf(" %d " , &cadastro[i].peso );
+    scanf("%d" , &cadastro[i].peso );
     printf("Digite o altura em metros do paciente: ");
-    scanf(" %f " , &cadastro[i].altura );
+    scanf("%f%*c" , &cadastro[i].altura );
   }
+  return cadastro;
 }
-imprime(N)
+void imprime(int N , INDIVIDUO* imprime)
 {
-  INDIVIDUO imprime[MAX];
   int i;
-  printf("Paciente\nNome\t\tidade\tpeso(kg)\taltura\n");
+  printf("Paciente\nNome\tidade\tpeso\taltura\n");
   for ( i = 0 ; i < N ; i++)
   {
-    printf("%c\t" , imprime[i].nome );
+    printf("%s\t" , imprime[i].nome );
     printf("%d\t" , imprime[i].idade );
     printf("%d\t" , imprime[i].peso );
-    printf("%f\t" , imprime[i].altura );
+    printf("%.2f\n" , imprime[i].altura );
   }
 }
 int main()
 {
+  INDIVIDUO *V;
   int Num;
-  printf("Cadastro de Pacientes\nDigite o numero de pacientes(1 a 10): ");
-  scanf("%d", &Num);
+    printf("Cadastro de Pacientes\nDigite o numero de pacientes(1 a 10): ");
+  scanf("%d%*c", &Num);
   while ( Num > MAX )
   {
   printf("Voce digitou um numero superior ao permitido\n");
   printf("Digite o numero de pacientes(1 a 10): ");
   scanf("%d", &Num);
   }
-  cadastro (Num);
-  imprime();
+  V = cadastro (Num);
+  imprime ( Num , V);
+  free(V);
   return 0;
 }
