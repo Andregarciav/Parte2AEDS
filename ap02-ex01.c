@@ -21,7 +21,7 @@ INDIVIDUO* cadastro( int N )
     printf("Digite o peso do paciente: ");
     scanf("%d" , &cadastro[i].peso );
     printf("Digite o altura em metros do paciente: ");
-    scanf("%f%*c" , &cadastro[i].altura );
+    scanf("%f" , &cadastro[i].altura );
   }
   return cadastro;
 }
@@ -42,7 +42,7 @@ int main()
   INDIVIDUO *V;
   int Num;
     printf("Cadastro de Pacientes\nDigite o numero de pacientes(1 a 10): ");
-  scanf("%d%*c", &Num);
+  scanf("%d", &Num);
   while ( Num > MAX )
   {
   printf("Voce digitou um numero superior ao permitido\n");
